@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* ---------- Header ---------- */
+.header {
+  text-align: center;
+  padding: 20px 0 10px;
+  position: relative;
+  z-index: 10;
+}
+.header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #f7971e, #ffd200, #f7971e);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ---------- Clock ---------- */
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 14px 0 6px;
+  z-index: 10;
+  position: relative;
+}
+.clock-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  padding: 10px 22px;
+  text-align: center;
+  min-width: 90px;
+  backdrop-filter: blur(6px);
+}
+.clock-box .label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+.clock-box .value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #ffd200;
+}
+.colon {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffd200;
+  animation: blink 1s step-start infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.15;
+  }
+}
+
+/* ---------- Slot Badge ---------- */
+.slot-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 6px 26px;
+  border-radius: 30px;
+  margin-top: 8px;
+  box-shadow: 0 0 18px rgba(56, 239, 125, 0.5);
+  z-index: 10;
+  position: relative;
+}
+
+/* ---------- Stage ---------- */
+.stage {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 220px);
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+/* ---------- Batch Card ---------- */
+.batch-card {
+  position: absolute;
+  width: 240px;
+  border-radius: 16px;
+  padding: 16px 18px;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  transition: box-shadow 0.3s;
+  will-change: transform;
+}
+.batch-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+  z-index: 5;
+}
+.batch-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.batch-card .batch-time {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+.batch-card ul {
+  list-style: none;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+.batch-card ul li::before {
+  content: "👤 ";
+}
+
+/* Colour themes */
+.b1 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+.b2 {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+.b3 {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+/* ---------- Particles ---------- */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, -60px) scale(0.9);
+  }
+  75% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-10px, -100px) scale(0.5);
+    opacity: 0;
+  }
+}
